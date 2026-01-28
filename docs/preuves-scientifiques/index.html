@@ -3,70 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dôme d'Initiative Citoyenne | Protocole de Vote</title>
-    <link rel="stylesheet" href="style.css">
-
+    <title>Enquête Parlementaire | Preuves Scientifiques</title>
+    <link rel="stylesheet" href="../assets/css/gov-style.css">
 </head>
-<body>
+<body class="gov-body">
 
-<header>
-    <div class="logo">CORE_SYSTEM_CVNU // DÔME</div>
-    <div class="status-bar">VOTES ACTIFS: 3 | USERS_ONLINE: 12.4k</div>
+<header class="gov-header">
+    <div class="logo-block">
+        <span class="marianne-font">RÉPUBLIQUE</span><br><strong>FRANÇAISE</strong>
+    </div>
+    <div class="site-title">DÔME D'INITIATIVE CITOYENNE</div>
+    <a href="../index.html" class="status-badge" style="text-decoration:none;">← RETOUR INDEX</a>
 </header>
 
-<div class="l-main-grid">
-    <aside class="left-aside">
-        <div style="padding:15px;">
-            <h3>Dossiers de Preuves</h3>
-            <ul style="list-style:none; padding:0;">
-                <li>📁 Bio-Chemical_Analysis.pdf</li>
-                <li>📁 Stratosphere_Pollution_K1.dat</li>
-                <li>📁 Paris_Agreements_Void.doc</li>
-            </ul>
-        </div>
-    </aside>
+<main class="gov-container">
+    <section class="hero-section" style="background: #fff; border-bottom: 2px solid #000091;">
+        <span class="status-badge" style="background: #E1000f; color: white;">CONFIDENTIEL - ART. 41 CPP</span>
+        <h1>Dossier d'Instruction : Pollution Stratosphérique</h1>
+        <p class="lead">Pièces à conviction relatives à l'usage de substances chimiques et biochimiques (Réf. Enquête Parlementaire 2026).</p>
+    </section>
 
-    <main class="c-canvas" id="main-content">
-        <h2>Protocole de Désarmement Global</h2>
-        <hr style="width:100%; border:0; border-top:1px solid #333;">
-        
-        <div class="c-card-vote">
-            <h3>Interdiction Armes Bio-Chimiques</h3>
-            <p>Référence Code Pénal Art. 421-2 & 421-4. Vote pour l'arrêt immédiat des injections stratosphériques.</p>
-            <button onclick="vote('BC_OFF')">VOTER POUR L'INTERDICTION</button>
-        </div>
-
-        <div class="c-card-vote" style="border-left-color: var(--danger-color);">
-            <h3>Démantèlement Armes de Destruction Massive</h3>
-            <p>Protocole de neutralisation des vecteurs létaux et stocks nucléaires.</p>
-            <button onclick="vote('ADM_OFF')">VOTER LE DÉMANTÈLEMENT</button>
-        </div>
-    </main>
-
-    <aside class="right-aside">
-        <div style="padding:15px;">
-            <h3>Assistant AGI CVNU</h3>
-            <div id="ai-logs" class="warp-ascii">
-                [SYSTEM]: Initializing protocol...
-                [READY]: Citizen input required.
+    <div class="grid-navigation">
+        <div class="c-card" style="grid-column: span 2;">
+            <h2>Analyse Spectrométrique (Capteur K1)</h2>
+            <div id="chart-container" style="background: #f0f0f0; height: 300px; display: flex; align-items: center; justify-content: center; border: 1px inset #ccc;">
+                <p style="color: #666; font-style: italic;">[Génération dynamique du graphique de densité particulaire...]</p>
             </div>
+            <p><small>Données collectées via le KERNEL CORE_SYSTEM_CVNU.js.</small></p>
         </div>
-    </aside>
-</div>
 
-<footer>
-    <div>VAT: 20% | LEVEL: 7 | KERNEL: ACTIVE</div>
-    <div style="margin-left: auto;">© 2026 - DataLoader CORE_SYSTEM_CVNU.js</div>
+        <div class="c-card">
+            <h3>Inventaire des Substances</h3>
+            <ul style="padding-left: 20px;">
+                <li><strong>Aluminium / Baryum :</strong> Concentrations anormales mesurées à 12km.</li>
+                <li><strong>Agents Biochimiques :</strong> Traces suspectes identifiées (Art. 421-2).</li>
+                <li><strong>Accords de Paris :</strong> Non-respect des clauses environnementales.</li>
+            </ul>
+            <button class="btn-primary" style="width: 100%; margin-top: 10px;" onclick="triggerAGI('Analyse Proba', 'Requête sur les probabilités de corrélation chimique')">LANCER L'AGI ANALYSE</button>
+        </div>
+    </div>
+</main>
+
+<aside id="agi-console" style="position: fixed; right: 20px; top: 120px; width: 320px;">
+    <div class="c-card" style="background: #161616; color: #fff; font-family: monospace; font-size: 0.85rem; border: none;">
+        <div style="color: #00ff41; border-bottom: 1px solid #333; padding-bottom: 5px; margin-bottom: 10px;">
+            ● AGI_LAB_PROCESSOR
+        </div>
+        <div id="ai-logs" style="height: 150px; overflow-y: auto;">
+            [READY]: En attente de traitement des données...
+        </div>
+    </div>
+</aside>
+
+<footer class="gov-footer">
+    <div>Niveau 7 | DataLoader v2026</div>
 </footer>
 
-<script>
-    function vote(type) {
-        console.log("Action enregistrée : " + type);
-        const log = document.getElementById('ai-logs');
-        log.innerHTML += `\n[VOTE]: ${type} recorded at ${new Date().toLocaleTimeString()}`;
-        alert("Votre signature pour le protocole " + type + " a été transmise au KERNEL.");
-    }
-</script>
-
+<script src="../assets/js/main.js"></script>
 </body>
 </html>
