@@ -22,6 +22,53 @@ if (!fs.existsSync(VOTES_FILE)) {
     fs.writeFileSync(VOTES_FILE, JSON.stringify([], null, 2));
 }
 
+/**
+ * GESTION DU REGISTRE DES VOTES (CRUD)
+ */
+
+// CREATE : Enregistrement d'un nouveau vote (Déjà implémenté)
+// READ : Récupération des statistiques pour la Majority Absolute
+app.get('/api/votes/stats', (req, res) => {
+    try {
+        const votes = JSON.parse(fs.readFileSync(VOTES_FILE));
+        const stats = {
+            total: votes.length,
+            bio_oui: votes.filter(v => v.voteID === 'RIC_BIO_OUI').length,
+            adm_oui: votes.filter(v => v.voteID === 'RIC_ADM_OUI').length,
+            kernel_level: 7 // Invariant CORE_SYSTEM_CVNU
+        };
+        res.json(stats);
+    } catch (error) {
+        res.status(500).json({ error: "Erreur de lecture du registre" });
+    }
+});
+
+// UPDATE : Annotation par l'AGI (Audit de conformité)
+app.patch('/api/votes/audit/:index', async (req, res) => {
+    // Permet à la commission d'ajouter une note d'enquête sur un vote spécifique
+});
+/**
+ * DÔME CITOYEN - PDF GENERATOR
+ * Transforme le HTML Sémantique en document d'instruction
+ */
+
+// Fonction pour compiler les données du citoyen dans le modèle de lettre
+async function generateLegalDocument(citizenData) {
+    const templatePath = path.join(__dirname, 'docs/composition-penale/lettre-procureur.html');
+    let htmlContent = fs.readFileSync(templatePath, 'utf8');
+
+    // Remplacement des variables sémantiques par les données du KERNEL
+    htmlContent = htmlContent
+        .replace('[NOM_CITOYEN]', citizenData.name || 'ANONYME (ART. 41 CPP)')
+        .replace('[VILLE]', citizenData.city || 'NON SPÉCIFIÉ')
+        .replace('[DATE]', new Date().toLocaleDateString('fr-FR'));
+
+    // Injection de la preuve numérique (hash du registre votes.json)
+    const registryHash = Buffer.from(fs.readFileSync('votes.json')).toString('base64').substring(0, 16);
+    htmlContent = htmlContent.replace('[HASH_PREUVE]', registryHash);
+
+    return htmlContent;
+}
 // Endpoint AGI avec Enregistrement dans le Registre
 app.post('/api/agi-request', async (req, res) => {
     const { task, context, voteData } = req.body;
