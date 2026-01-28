@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dôme d'Initiative Citoyenne | Protocole de Vote</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<header>
+    <div class="logo">CORE_SYSTEM_CVNU // DÔME</div>
+    <div class="status-bar">VOTES ACTIFS: 3 | USERS_ONLINE: 12.4k</div>
+</header>
+
+<div class="l-main-grid">
+    <aside class="left-aside">
+        <div style="padding:15px;">
+            <h3>Dossiers de Preuves</h3>
+            <ul style="list-style:none; padding:0;">
+                <li>📁 Bio-Chemical_Analysis.pdf</li>
+                <li>📁 Stratosphere_Pollution_K1.dat</li>
+                <li>📁 Paris_Agreements_Void.doc</li>
+            </ul>
+        </div>
+    </aside>
+
+    <main class="c-canvas" id="main-content">
+        <h2>Protocole de Désarmement Global</h2>
+        <hr style="width:100%; border:0; border-top:1px solid #333;">
+        
+        <div class="c-card-vote">
+            <h3>Interdiction Armes Bio-Chimiques</h3>
+            <p>Référence Code Pénal Art. 421-2 & 421-4. Vote pour l'arrêt immédiat des injections stratosphériques.</p>
+            <button onclick="vote('BC_OFF')">VOTER POUR L'INTERDICTION</button>
+        </div>
+
+        <div class="c-card-vote" style="border-left-color: var(--danger-color);">
+            <h3>Démantèlement Armes de Destruction Massive</h3>
+            <p>Protocole de neutralisation des vecteurs létaux et stocks nucléaires.</p>
+            <button onclick="vote('ADM_OFF')">VOTER LE DÉMANTÈLEMENT</button>
+        </div>
+    </main>
+
+    <aside class="right-aside">
+        <div style="padding:15px;">
+            <h3>Assistant AGI CVNU</h3>
+            <div id="ai-logs" class="warp-ascii">
+                [SYSTEM]: Initializing protocol...
+                [READY]: Citizen input required.
+            </div>
+        </div>
+    </aside>
+</div>
+
+<footer>
+    <div>VAT: 20% | LEVEL: 7 | KERNEL: ACTIVE</div>
+    <div style="margin-left: auto;">© 2026 - DataLoader CORE_SYSTEM_CVNU.js</div>
+</footer>
+
+<script>
+    function vote(type) {
+        console.log("Action enregistrée : " + type);
+        const log = document.getElementById('ai-logs');
+        log.innerHTML += `\n[VOTE]: ${type} recorded at ${new Date().toLocaleTimeString()}`;
+        alert("Votre signature pour le protocole " + type + " a été transmise au KERNEL.");
+    }
+</script>
+
+</body>
+</html>
