@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Référendum d'Initiative Citoyenne | Vote</title>
+    <link rel="stylesheet" href="../assets/css/gov-style.css">
+</head>
+<body class="gov-body">
+
+<header class="gov-header">
+    <div class="logo-block">
+        <span class="marianne-font">RÉPUBLIQUE</span><br><strong>FRANÇAISE</strong>
+    </div>
+    <div class="site-title">DÔME D'INITIATIVE CITOYENNE</div>
+    <a href="../index.html" class="status-badge" style="text-decoration:none;">← QUITTER LE BUREAU DE VOTE</a>
+</header>
+
+<main class="gov-container">
+    <section class="hero-section" style="background: #fff; border-bottom: 2px solid #000091; padding-bottom: 20px;">
+        <span class="status-badge">SCRUTIN PUBLIC : RIC-2026-01</span>
+        <h1>Référendum : Interdiction des Armes et Protection Stratosphérique</h1>
+        <p class="lead">En vertu de la souveraineté populaire, exprimez votre position sur les protocoles de défense et les émissions biochimiques.</p>
+    </section>
+
+    <div class="voting-area" style="margin-top: 40px;">
+        <div class="c-card" style="border-left: 8px solid #000091;">
+            <h2>Question 1 : Armes Biochimiques & Stratosphère</h2>
+            <p>Approuvez-vous l'interdiction totale de production, de stockage et d'utilisation de substances chimiques dans la stratosphère (réf. Art 421-2 CP) ?</p>
+            <div class="btn-group" style="display: flex; gap: 15px; margin-top: 20px;">
+                <button class="btn-primary" onclick="processVote('RIC_BIO_OUI', 'POUR l\'interdiction biochimique')">OUI, J'APPROUVE</button>
+                <button class="btn-primary" style="background-color: #666;" onclick="processVote('RIC_BIO_NON', 'CONTRE l\'interdiction biochimique')">NON, JE M'OPPOSE</button>
+            </div>
+        </div>
+
+        <div class="c-card" style="border-left: 8px solid #E1000f;">
+            <h2>Question 2 : Démantèlement des Armes Létales</h2>
+            <p>Souhaitez-vous engager la France dans un processus immédiat de démantèlement des armes de destruction massive et de sortie des accords militaires non-soumis à référendum ?</p>
+            <div class="btn-group" style="display: flex; gap: 15px; margin-top: 20px;">
+                <button class="btn-primary" onclick="processVote('RIC_ADM_OUI', 'POUR le démantèlement ADM')">OUI, J'APPROUVE</button>
+                <button class="btn-primary" style="background-color: #666;" onclick="processVote('RIC_ADM_NON', 'CONTRE le démantèlement ADM')">NON, JE M'OPPOSE</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<aside id="agi-console" style="position: fixed; right: 20px; top: 120px; width: 320px;">
+    <div class="c-card" style="background: #161616; color: #fff; font-family: monospace; font-size: 0.85rem; border: none;">
+        <div style="color: #00ff41; border-bottom: 1px solid #333; padding-bottom: 5px; margin-bottom: 10px;">
+            ● KERNEL_SYNC_ACTIVE [2026]
+        </div>
+        <div id="ai-logs" style="height: 200px; overflow-y: auto; color: #e0e0e0;">
+            [READY]: En attente de signature citoyenne...
+        </div>
+    </div>
+</aside>
+
+<footer class="gov-footer">
+    <div class="footer-content">
+        <span>Authentification : Anonymat Garanti | Protocole CORE_SYSTEM_CVNU.js</span>
+    </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+
+</body>
+</html>
